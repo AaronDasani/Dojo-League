@@ -1,0 +1,52 @@
+@model DojoInfo
+
+<title>@Model.dojo.name Dojo</title>
+<h3>@Model.dojo.name</h3>
+<hr>
+<h6 class="text-info"> Location: <span class="font-weight-light text-dark">@Model.dojo.location</span></h6>
+<h6> Dojo Information:<span class="font-weight-light"> @Model.dojo.description</span></h6>
+<hr>
+<div class="row mt-5">
+    <div class="col-5">
+        <table class="table table-striped ">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Ninja Name</th>
+                    <th scope="col">Action</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var ninja in Model.dojo.ninjas)
+                {
+                    <tr>
+                        <td> <a href="~/dojo/@ninja.ninja_id">@ninja.name</a></td>
+                        <td> <a href="~/banish/@ninja.ninja_id/@Model.dojo.dojo_id" class="btn btn-danger btn-sm shadow">Banish</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-5">
+        <table class="table table-striped ">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Ninja Name</th>
+                    <th scope="col">Action</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var ninja in Model.RogueNinjas)
+                {
+                    <tr>
+                        <td> <a href="~/dojo/@ninja.ninja_id">@ninja.name</a></td>
+                        <td> <a href="~/recruit/@ninja.ninja_id/@Model.dojo.dojo_id"  class="btn btn-success btn-sm shadow">Recruit</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

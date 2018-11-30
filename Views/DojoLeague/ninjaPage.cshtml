@@ -1,0 +1,31 @@
+@model Ninja
+
+
+<h5 class="font-weight-light">Name: @Model.name</h5>
+<hr>
+
+<h6 class="font-weight-bold">Ninja Level: @Model.level</h6>
+
+<h6 class="d-inline-block">Description:</h6>
+    @if(Model.description==null)
+    {
+       <small class="d-inline-block"> <p class="font-weight-light mt-2">None</p></small>
+    }
+    else
+    {
+       <small class="d-inline-block"><p class="font-weight-light mt-2 ">@Model.description</p></small>
+    }
+
+
+<h6>Current Dojo:
+    <small>
+        @if(Model.dojo_id==null)
+        {
+            <p class=" d-inline-block text-danger font-weight-bold">Rogue, No Dojo Selected</p>
+        }
+        else
+        {
+            <a href="~/dojo/@Model.dojo_id">@Model.dojo.name</a>
+        }
+    </small>
+</h6>

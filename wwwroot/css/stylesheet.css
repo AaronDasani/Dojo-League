@@ -1,0 +1,28 @@
+.animatedCat{
+    text-align: center;
+}
+
+@keyframes cat {
+    0%{top:-10px;}
+    50%{top: 20px;}
+    100%{top:-10px;}
+
+}
+
+.animatedCat img{
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 200px;
+    margin-top: 20px;
+    animation-name: cat;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease;
+}
+#catGif{
+    width: 90px;
+    position: absolute;
+    top: -20px;
+    
+}

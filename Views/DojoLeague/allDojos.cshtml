@@ -1,0 +1,52 @@
+@model DojoInfo
+
+
+<div class="row">
+    <div class="col-3">
+        <h5>All Dojos</h5>
+        <hr>
+        <table class="table table-striped ">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Dojo Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var dojo in Model.dojos)
+                {
+                    <tr>
+                        <td> <a href="dojo/@dojo.dojo_id">@dojo.name</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6">
+        <h5>Register A Dojo</h5>
+        <hr>
+        <form action="createDojo" method="post">
+            <div class="form-group">
+                <label asp-for="dojo.name"></label>
+                <input asp-for="dojo.name">
+                <small><span asp-validation-for="dojo.name" class="text-danger font-weight-bold"></span></small>
+            </div>
+            <div class="form-group">
+                <label asp-for="dojo.location"></label>
+                <input asp-for="dojo.location">
+                <small><span asp-validation-for="dojo.location" class="text-danger font-weight-bold"></span></small>
+            </div>
+            <div class="form-group">
+                <label asp-for="dojo.description"></label>
+                <textarea asp-for="dojo.description" cols="40" rows="4"></textarea>
+                <small><span asp-validation-for="dojo.description" class="text-danger font-weight-bold"></span></small>
+            </div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-outline-primary shadow mr-5">Add Dojo</button>
+            </div>
+        </form>
+       
+    </div>
+    <div class="col-3 animatedCat">
+        <img src="~/images/coderdojo.jpg" alt="Coder Cat">
+    </div>
+</div>
